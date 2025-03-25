@@ -16,6 +16,9 @@ TOKEN = os.getenv("BOT_TOKEN")
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
 
+import os
+bot = Bot(token=os.getenv("BOT_TOKEN"))  # Берём токен из Render
+
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
     await message.reply("Привет! Я бот для прогнозов на спорт!")
@@ -26,7 +29,7 @@ async def echo(message: types.Message):
 
 if __name__ == "__main__":
     async def main():
-    bot = Bot(token="ТВОЙ_ТОКЕН")
+    bot = Bot(token="ТВОЙ_ТОКЕН")  # ✅ Теперь правильный отступ
     dp = Dispatcher()
     
     # Запуск бота
