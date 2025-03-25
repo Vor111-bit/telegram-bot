@@ -2,7 +2,9 @@ import os
 import logging
 import asyncio
 from aiogram import Bot, Dispatcher, types
-from aiogram.utils import executor
+import asyncio
+from aiogram import Bot, Dispatcher
+
 
 # Включаем логирование (поможет отслеживать ошибки)
 logging.basicConfig(level=logging.INFO)
@@ -23,4 +25,13 @@ async def echo(message: types.Message):
     await message.reply(f"Ты написал: {message.text}")
 
 if __name__ == "__main__":
-    executor.start_polling(dp, skip_updates=True)
+    async def main():
+    bot = Bot(token="ТВОЙ_ТОКЕН")
+    dp = Dispatcher()
+    
+    # Запуск бота
+    await dp.start_polling(bot)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
